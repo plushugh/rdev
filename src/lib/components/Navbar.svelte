@@ -1,5 +1,24 @@
-<header class="sticky top-0 h-16 z-50 bg-transparent backdrop-blur-md w-screen shadow-md">
+<script>
+  import { fly } from 'svelte/transition';
+
+  import treeVisibleStore from '$lib/stores/treeVisibleStore';
+</script>
+
+<header class="sticky top-0 h-16 z-50 bg-transparent backdrop-blur w-screen shadow-md">
   <div class="flex w-full h-full flex-row px-6 place-items-center">
+    <div class="transition-all duration-500" style="width: {!$treeVisibleStore ? '32px' : '0px'};">
+      {#if !$treeVisibleStore}
+        <img
+          class="transition-all duration-300 mt-1"
+          src="/icon.svg"
+          alt="Tree Studio Logo"
+          height="34"
+          width="32"
+          in:fly={{ x: -32, duration: 500 }}
+          out:fly={{ x: -32, duration: 500 }}
+        />
+      {/if}
+    </div>
     <h1
       class="select-none flex-grow text-4xl font-display font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-purple-600 hover:saturate-150 transition-all duration-300"
     >
