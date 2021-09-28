@@ -1,4 +1,4 @@
-<div class="w-full flex justify-center mt-10 select-none">
+<div class="w-full flex justify-center mt-10 select-none skew-y-3">
   <img class="imgsize" src="/icon.svg" alt="Tree Studio Logo" />
 </div>
 
@@ -9,7 +9,7 @@
   Edit.
 </h1>
 
-<div class="mt-8 flex flex-row place-items-center justify-center">
+<div class="mt-8 flex flex-row place-items-center justify-center skew-y-3">
   <a
     class="h-12 px-3 py-2 rounded-md bg-white hover:scale-105 hover:shadow-sm transition-all duration-300 border-2 uppercase font-display btn select-none"
     href="https://space.bilibili.com/350952551"
@@ -50,10 +50,12 @@
   }
   .h1size {
     line-height: 0.95;
-    font-size: clamp(48px, 14vw, 70vw);
+    font-size: 14vw;
   }
   .imgsize {
     width: 20vw;
+    margin-bottom: -5vw;
+    margin-top: -1vw;
   }
   .btn {
     line-height: 28px;

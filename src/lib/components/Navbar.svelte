@@ -1,4 +1,4 @@
-<header class="sticky h-16 bg-white w-screen shadow-md">
+<header class="sticky top-0 h-16 z-50 bg-transparent backdrop-blur-md w-screen shadow-md">
   <div class="flex w-full h-full flex-row px-6 place-items-center">
     <h1
       class="select-none flex-grow text-4xl font-display font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-purple-600 hover:saturate-150 transition-all duration-300"
