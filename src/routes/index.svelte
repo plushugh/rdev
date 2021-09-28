@@ -4,6 +4,10 @@
   let inviewOpts = {};
 </script>
 
+<svelte:head>
+  <title>Tree Studio</title>
+</svelte:head>
+
 <div
   class="w-full flex justify-center mt-10 select-none skew-y-3"
   use:inview={inviewOpts}
@@ -12,18 +16,18 @@
     treeVisibleStore.set(inView);
   }}
 >
-  <img class="imgsize" src="/icon.svg" alt="Tree Studio Logo" />
+  <img class="imgsize" height="140" width="128" src="/icon.svg" alt="Tree Studio Logo" />
 </div>
 
 <h1
-  class="ml-8 select-none text-center h1size font-display font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from to animate-bg skew-y-3 saturate-200 bg-center"
+  class="select-none text-center h1size font-display font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from to animate-bg skew-y-3 saturate-200 bg-center"
 >
   Plan.<br />
   Shoot.<br />
   Edit.
 </h1>
 
-<div class="mt-8 flex flex-row place-items-center justify-center skew-y-3">
+<div class="mt-8 flex flex-row place-items-center justify-center">
   <a
     class="h-12 px-3 py-2 rounded-md bg-white hover:scale-105 hover:shadow-sm transition-all duration-300 border-2 uppercase font-display btn select-none"
     href="https://space.bilibili.com/350952551"
@@ -40,7 +44,7 @@
 
 <section class="mt-10 mb-10 flex flex-row flex-wrap w-full place-items-center justify-center">
   <div
-    class="m-3 w-96 rounded border-2 flex flex-col place-items-center justify-center p-5 hover:shadow-md hover:skew-x-1 transition-all duration-300"
+    class="m-3 w-96 rounded border-2 flex flex-col place-items-center justify-center p-5 hover:shadow-md hover:scale-105 hover:skew-y-1 transition-all duration-300"
   >
     <h1 class="text-4xl font-display font-extrabold">Plan the video</h1>
     <p class="font-sans text-base mt-4 mx-2">
@@ -50,7 +54,7 @@
     </p>
   </div>
   <div
-    class="m-3 w-96 rounded border-2 flex flex-col place-items-center justify-center p-5 hover:shadow-md hover:skew-x-1 transition-all duration-300"
+    class="m-3 w-96 rounded border-2 flex flex-col place-items-center justify-center p-5 hover:shadow-md hover:scale-105 hover:skew-y-1 transition-all duration-300"
   >
     <h1 class="text-4xl font-display font-extrabold">Shoot the video</h1>
     <p class="font-sans text-base mt-4 mx-2">
@@ -60,7 +64,7 @@
     </p>
   </div>
   <div
-    class="m-3 w-96 rounded border-2 flex flex-col place-items-center justify-center p-5 hover:shadow-md hover:skew-x-1 transition-all duration-300"
+    class="m-3 w-96 rounded border-2 flex flex-col place-items-center justify-center p-5 hover:shadow-md hover:scale-105 hover:skew-y-1 transition-all duration-300"
   >
     <h1 class="text-4xl font-display font-extrabold">Edit the video</h1>
     <p class="font-sans text-base mt-4 mx-2">
@@ -96,7 +100,7 @@
     animation: 6s animate-bg infinite;
   }
   .h1size {
-    line-height: 0.95;
+    line-height: 0.9;
     font-size: 14vw;
   }
   .imgsize {

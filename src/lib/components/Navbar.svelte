@@ -4,7 +4,7 @@
   import treeVisibleStore from '$lib/stores/treeVisibleStore';
 </script>
 
-<header class="sticky top-0 h-16 z-50 bg-transparent backdrop-blur w-screen shadow-md">
+<header class="fixed top-0 h-16 z-50 bg-transparent backdrop-blur w-screen shadow-md">
   <div class="flex w-full h-full flex-row px-6 place-items-center">
     <div class="transition-all duration-500" style="width: {!$treeVisibleStore ? '32px' : '0px'};">
       {#if !$treeVisibleStore}
@@ -41,3 +41,4 @@
     </nav>
   </div>
 </header>
+<div class="h-16" />
