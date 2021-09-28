@@ -1,6 +1,11 @@
 {
 	"name": "rdev",
 	"version": "0.0.1",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/plushugh/rdev"
+	},
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -10,7 +15,6 @@
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
-	"prebuild": "[[ $CI = true ]] && npx pnpm@3 install --store=node_modules/.pnpm-store || echo skiping pnpm install",
 	"devDependencies": {
 		"@fontsource/ibm-plex-sans": "^4.5.1",
 		"@fontsource/plus-jakarta-sans": "^4.5.0",
