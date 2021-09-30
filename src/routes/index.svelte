@@ -1,7 +1,12 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
+
+  import Card from '$lib/components/Card.svelte';
   import treeVisibleStore from '$lib/stores/treeVisibleStore';
   import { inview } from 'svelte-inview';
   let inviewOpts = {};
+
+  const postsPromise = fetch('blog/blog.json').then((res) => res.json());
 </script>
 
 <svelte:head>
@@ -27,7 +32,7 @@
   Edit.
 </h1>
 
-<div class="mt-8 flex flex-row place-items-center justify-center">
+<div class="mt-14 flex flex-row place-items-center justify-center">
   <a
     class="h-12 px-3 py-2 rounded-md bg-white hover:scale-105 hover:shadow-sm transition-all duration-300 border-2 uppercase font-display btn select-none"
     href="https://space.bilibili.com/350952551"
@@ -42,49 +47,45 @@
   </a>
 </div>
 
-<section class="mt-10 mb-10 flex flex-row flex-wrap w-full place-items-center justify-center">
-  <div
-    class="m-3 w-96 rounded border-2 flex flex-col place-items-center justify-center p-5 hover:shadow-md hover:scale-105 hover:skew-y-1 transition-all duration-300"
-  >
-    <h1 class="text-4xl font-display font-extrabold">Plan the video</h1>
-    <p class="font-sans text-base mt-4 mx-2">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-      been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-      galley of type and scrambled it to make a type specimen book.
-    </p>
-  </div>
-  <div
-    class="m-3 w-96 rounded border-2 flex flex-col place-items-center justify-center p-5 hover:shadow-md hover:scale-105 hover:skew-y-1 transition-all duration-300"
-  >
-    <h1 class="text-4xl font-display font-extrabold">Shoot the video</h1>
-    <p class="font-sans text-base mt-4 mx-2">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-      been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-      galley of type and scrambled it to make a type specimen book.
-    </p>
-  </div>
-  <div
-    class="m-3 w-96 rounded border-2 flex flex-col place-items-center justify-center p-5 hover:shadow-md hover:scale-105 hover:skew-y-1 transition-all duration-300"
-  >
-    <h1 class="text-4xl font-display font-extrabold">Edit the video</h1>
-    <p class="font-sans text-base mt-4 mx-2">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-      been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-      galley of type and scrambled it to make a type specimen book.
-    </p>
-  </div>
+<section
+  class="mt-10 mb-10 px-10 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full place-items-center justify-center max-w-md md:max-w-screen-2xl mx-auto"
+>
+  <Card title="Plan The Video" content="Hey" />
+  <Card title="Shoot The Video" content="Hey" />
+  <Card title="Edit The Video" content="Hey" />
+</section>
+
+<section class="max-w-prose mx-auto px-4 mt-20">
+  <h2 class="text-center text-5xl sm:text-6xl font-display font-extrabold mb-4">
+    Recent Blog Posts
+  </h2>
+  {#await postsPromise then data}
+    {#each data.posts as post}
+      <article
+        class="mb-4 p-4 border-2 rounded-md hover:skew-y-1 hover:shadow-md transition-all duration-300"
+        on:click={() => goto('/blog/' + post['slug'])}
+      >
+        <h2 class="text-3xl mb-2 font-display font-light tracking-tight">{post['title']}</h2>
+        <span class="text-sm font-sans font-light"
+          >{new Date(post['date']).toLocaleDateString()}</span
+        >
+        <p class="text-base font-sans font-normal my-2">{post['summary']}</p>
+        <a href={'/blog/' + post['slug']} class="text-blue-600 hover:underline">Read More</a>
+      </article>
+    {/each}
+  {/await}
 </section>
 
 <style>
   @keyframes animate-bg {
     0% {
-      background-position: 0%;
+      background-position: 0% 50%;
     }
     50% {
-      background-position: 100%;
+      background-position: 100% 50%;
     }
     100% {
-      background-position: 0%;
+      background-position: 0% 50%;
     }
   }
   .from {
@@ -101,12 +102,22 @@
   }
   .h1size {
     line-height: 0.9;
-    font-size: 14vw;
+    font-size: 20vw;
+  }
+  @media (min-width: 500px) {
+    .h1size {
+      font-size: clamp(128px,14vw, 300px);
+    }
   }
   .imgsize {
-    width: 20vw;
+    width: 60vw;
     margin-bottom: -3vw;
     margin-top: -1vw;
+  }
+  @media (min-width: 500px) {
+    .imgsize {
+      width: clamp(200px,20vw,600px)
+    }
   }
   .btn {
     line-height: 28px;

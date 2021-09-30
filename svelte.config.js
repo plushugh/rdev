@@ -1,5 +1,6 @@
 import preprocess from 'svelte-preprocess';
 import netlify from '@sveltejs/adapter-netlify';
+import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -8,6 +9,12 @@ const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: [
+    mdsvex({
+      extensions: ['.svelte.md', '.md', '.svx'],
+      layout: {
+        _: './src/routes/blog/layout.svelte'
+      }
+    }),
     preprocess({
       postcss: true,
       typescript: true
