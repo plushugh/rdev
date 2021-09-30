@@ -1,7 +1,7 @@
-<script lang="ts">
-  export let title: string;
-  export let author: string;
-  export let date: string;
+<script>
+  export let title;
+  export let author;
+  export let date;
 
   $: realdate = new Date(date).toLocaleDateString();
 </script>

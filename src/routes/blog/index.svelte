@@ -1,5 +1,7 @@
 <script lang="ts">
-  const postsPromise = fetch('blog/blog.json').then((res) => res.json());
+  const postsPromise = fetch('blog/blog.json')
+    .then((res) => res.json())
+    .catch((err) => err);
 </script>
 
 <main class="max-w-prose mx-auto mt-16 px-4">

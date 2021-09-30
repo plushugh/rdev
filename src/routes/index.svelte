@@ -6,7 +6,9 @@
   import { inview } from 'svelte-inview';
   let inviewOpts = {};
 
-  const postsPromise = fetch('blog/blog.json').then((res) => res.json());
+  const postsPromise = fetch('blog/blog.json')
+    .then((res) => res.json())
+    .catch((err) => err);
 </script>
 
 <svelte:head>
@@ -106,7 +108,7 @@
   }
   @media (min-width: 500px) {
     .h1size {
-      font-size: clamp(128px,14vw, 300px);
+      font-size: clamp(128px, 14vw, 300px);
     }
   }
   .imgsize {
@@ -116,7 +118,7 @@
   }
   @media (min-width: 500px) {
     .imgsize {
-      width: clamp(200px,20vw,600px)
+      width: clamp(200px, 20vw, 600px);
     }
   }
   .btn {
