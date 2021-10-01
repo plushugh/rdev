@@ -3,6 +3,10 @@
 
   import Card from '$lib/components/Card.svelte';
   import treeVisibleStore from '$lib/stores/treeVisibleStore';
+
+  // Inview doesn't have types yet
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   import { inview } from 'svelte-inview';
   let inviewOpts = {};
 
@@ -81,13 +85,13 @@
 <style>
   @keyframes animate-bg {
     0% {
-      background-position: 0% 50%;
+      background-position: 0 50%;
     }
     50% {
       background-position: 100% 50%;
     }
     100% {
-      background-position: 0% 50%;
+      background-position: 0 50%;
     }
   }
   .from {

@@ -1,12 +1,12 @@
 <script context="module" lang="ts">
-  export function load({ error, status }) {
-    return {
-      props: {
-        status,
-        message: error.message
-      }
-    };
-  }
+  import type { ErrorLoad } from '@sveltejs/kit';
+
+  export const load: ErrorLoad = async ({ error, status }) => ({
+    props: {
+      status,
+      message: error.message
+    }
+  })
 </script>
 
 <script lang="ts">

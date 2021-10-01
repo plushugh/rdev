@@ -1,7 +1,8 @@
 import pMap from 'p-map';
 import { basename } from 'path';
+import type { RequestHandler } from '@sveltejs/kit';
 
-export async function get() {
+export const get: RequestHandler = async () => {
   // Import all .md files in the directory
   const modules = import.meta.glob('./*.md');
 
@@ -22,4 +23,4 @@ export async function get() {
   return {
     body: { posts }
   };
-}
+};
